@@ -12,7 +12,7 @@ before_install:
 - export PATH=$HOME/.local/bin:$PATH
 - cd ~/.local/bin
 - travis_retry curl -L https://github.com/commercialhaskell/stack/releases/download/v1.1.2/stack-1.1.2-linux-x86_64.tar.gz | tar xzvf -
-- mv stack-1.1.2-linux-x86_64 stack
+- mv stack-1.1.2-linux-x86_64/stack stack
 - chmod a+x ~/.local/bin/stack
 
 script:
