@@ -4,12 +4,16 @@ import Test.Framework.Providers.HUnit
 
 import Lib
 
-simpleAssertion5 :: Assertion
-simpleAssertion5 = number5 @=? 5
+constantsContribute :: Assertion
+constantsContribute = testConstantsContributeUniverse  @=? ["abc"]
 
-simpleAssertion4 :: Assertion
-simpleAssertion4 = number4 @=? 4
+variablesDoNotContribute :: Assertion
+variablesDoNotContribute = testVariablesDoNotContributeUniverse @=? []
+
+tupleUniverseRight :: Assertion
+tupleUniverseRight = testTupleUniverse @=? ["abc", "xyz"]
 
 main :: IO ()
-main = defaultMain [testCase "5 is itself" simpleAssertion5
-                  , testCase "4 is itself" simpleAssertion4]
+main = defaultMain [testCase "universe contribution of 'abc' is ['abc']" constantsContribute
+                  , testCase "universe contribution of 'X' is []" variablesDoNotContribute
+                  , testCase "tuple universe is right" tupleUniverseRight]
